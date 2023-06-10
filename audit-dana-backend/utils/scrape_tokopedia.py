@@ -24,13 +24,14 @@ webdriver_service = Service(f"{homedir}/chromedriver/113/chromedriver")
 def scrape_tokopedia(product: str):
     # Choose Chrome Browser
     browser = webdriver.Chrome(
-        service=webdriver_service, options=chrome_options)
+        # service=webdriver_service, 
+        options=chrome_options)
 
     encoded_product = quote(product)
 
     # Navigating to Facebook
     browser.get(
-        f"https://www.tokopedia.com/search?ob=23&page=3&q={encoded_product}&rf=true&st=product&shop_tier=2")
+        f"https://www.tokopedia.com/search?ob=23&page=1&q={encoded_product}&rf=true&st=product&shop_tier=2")
 
     browser.execute_script('window.scrollTo(0, 500);')
     time.sleep(1)
