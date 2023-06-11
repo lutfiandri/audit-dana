@@ -119,7 +119,7 @@ export default function DynamicTable({ dataSource, setDataSource }) {
                         onClick={() => handleDelete(record.key)}
                         className="text-c-blue-700"
                     >
-                        Delete
+                        Hapus
                     </button>
                 ) : null,
         },

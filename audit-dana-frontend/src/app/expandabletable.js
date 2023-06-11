@@ -41,7 +41,11 @@ export default function ExpandableTable({ data }) {
                             margin: 0,
                         }}
                     >
-                        <BoxPlot data={record.distribution} />
+                        <BoxPlot
+                            data={record.distribution}
+                            target={record.price}
+                            status={record.alert_level}
+                        />
                     </p>
                 ),
                 rowExpandable: (record) => record.name !== "Not Expandable",
