@@ -14,32 +14,7 @@ export default function Home() {
     const [current, setCurrent] = useState("manual");
     const [isShowResult, setIsShowResult] = useState(false);
     const [dataSource, setDataSource] = useState([]);
-    const [dataResult, setDataResult] = useState([
-        {
-            key: 1,
-            name: "A",
-            price: 32,
-            alert_level: 0,
-            description:
-                "My name is John Brown, I am 32 years old, living in Normal.",
-        },
-        {
-            key: 2,
-            name: "B",
-            price: 32,
-            alert_level: 1,
-            description:
-                "My name is John Brown, I am 32 years old, living in Normal.",
-        },
-        {
-            key: 3,
-            name: "C",
-            price: 32,
-            alert_level: 0,
-            description:
-                "My name is John Brown, I am 32 years old, living in Normal.",
-        },
-    ]);
+    const [dataResult, setDataResult] = useState([]);
 
     const items = [
         {
@@ -98,7 +73,6 @@ export default function Home() {
                         type: "success",
                         content: "Analisis selesai!",
                     });
-                    console.log(res.data);
                     setDataResult(
                         res.data.map((data, idx) => {
                             return {
@@ -106,7 +80,9 @@ export default function Home() {
                                 alert_level: data.alert_level,
                                 name: data.name,
                                 price: data.price,
-                                description: JSON.stringify(data.price_summary),
+                                distribution: data.products.map((prod) => {
+                                    return prod.price;
+                                }),
                             };
                         })
                     );
@@ -114,7 +90,6 @@ export default function Home() {
 
                     setTimeout(() => {
                         resultRef.current?.scrollIntoView();
-                        console.log(dataResult);
                     }, 300);
                 })
                 .catch((err) => {
@@ -212,11 +187,11 @@ export default function Home() {
                                                     },
                                                     {
                                                         name: "tepung beras rose brand 500gr",
-                                                        price: "50000",
+                                                        price: "25000",
                                                     },
                                                     {
-                                                        name: "samsung tab s8",
-                                                        price: "1000000",
+                                                        name: "samsung tab s8 8/128 wifi",
+                                                        price: "2000000",
                                                     },
                                                     {
                                                         name: "nintendo switch console zelda",

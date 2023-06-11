@@ -1,5 +1,7 @@
 import React from "react";
 import { Table, Tag } from "antd";
+import BoxPlot from "./boxplot";
+
 export default function ExpandableTable({ data }) {
     let options = [
         { color: "green", label: "Normal" },
@@ -39,7 +41,7 @@ export default function ExpandableTable({ data }) {
                             margin: 0,
                         }}
                     >
-                        {record.description}
+                        <BoxPlot data={record.distribution} />
                     </p>
                 ),
                 rowExpandable: (record) => record.name !== "Not Expandable",
